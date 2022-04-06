@@ -12,7 +12,7 @@ jobs:
     - name: List
       shell: bash
       run: |
-          ls-files -z -- "${{ github.workspace }}" | xargs -0 -n1 -I{} -- git log -1 --format="%at {}" {} | sort | tail -n1 | cut -d " " -f2-
+          git ls-files -z -- "${{ github.workspace }}" | xargs -0 -n1 -I{} -- git log -1 --format="%at {}" {} | sort | tail -n1 | cut -d " " -f2-
           latest_file=`ls ${{ github.workspace }} -t | head -n 1`
           a=`cat $latest_file | sed '/^$/d' | wc -l`
           a=`echo "${a:(-1)}"`
