@@ -12,7 +12,7 @@ jobs:
     - name: List
       shell: bash
       run: |
-          latest_file=$(ls ${{ github.workspace }} -t | head -n 1)
+          latest_file=`ls ${{ github.workspace }} -t | head -n 1`
           a=`cat $latest_file | sed '/^$/d' | wc -l`
           a=`echo "${a:(-1)}"`
           sum=$(($a%2))
