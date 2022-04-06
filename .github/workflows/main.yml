@@ -1,0 +1,20 @@
+name: PR test
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+    - name: List
+      shell: bash
+      run: |
+          latest_file=$(ls -t | head -n 1)
+          a=`cat $latest_file | sed '/^$/d' | wc -l`
+          a=`echo "${a:(-1)}"`
+          sum=$(($a%2))
+          if [ $sum = 0 ]
+          then
+            echo "success"
+          else
+            return `failure()`
+          fi
