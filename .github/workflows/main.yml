@@ -12,6 +12,7 @@ jobs:
     - name: List
       shell: bash
       run: |
+          ls ${{ github.workspace }} -m
           latest_file=`ls ${{ github.workspace }} -m | head -n 1`
           a=`cat $latest_file | sed '/^$/d' | wc -l`
           a=`echo "${a:(-1)}"`
