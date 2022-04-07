@@ -7,10 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v2
+      
     - name: List
       shell: bash
       run: |
-          a=`cat action.txt | sed '/^$/d' | wc -l`
+          latest_file=`ls ${{ github.workspace }} -t | head -n 1`
+          a=`cat $latest_file | sed '/^$/d' | wc -l`
           a=`echo "${a:(-1)}"`
           sum=$(($a%2))
           echo $latest_file $sum
@@ -20,4 +22,3 @@ jobs:
           else
             return `failure()`
           fi
-
