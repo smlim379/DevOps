@@ -12,6 +12,13 @@ jobs:
       shell: bash
       run: |
           filelist=`ls ${{ github.workspace }}`
+          num=`cat filelist | wc -l`
+
+          if [$num = 0 ]
+            then 
+              exit 0
+            else
+          {	
           cat filelist | while read line ;
           do
             fileline=`cat $line | sed '/^$/d' | wc -l`
@@ -25,4 +32,5 @@ jobs:
               fi
             echo $sum
           done
-
+          }
+          fi
