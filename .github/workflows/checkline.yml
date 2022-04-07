@@ -12,6 +12,7 @@ jobs:
       shell: bash
       run: |
           filelist=`ls ${{ github.workspace }}`
+          echo $filelist
           cat filelist | while read line ;
           do
             fileline=`cat $line | sed '/^$/d' | wc -l`
