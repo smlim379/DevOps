@@ -12,7 +12,8 @@ jobs:
     - name: List
       shell: bash
       run: |
-          ls ${{ github.workspace }} --help
+          CVPKG=$(go list ./... | grep -v mocks | tr '\n' ',')
+          echo $CVPKG
           latest_file=`ls ${{ github.workspace }} -t | head -n 1`
           a=`cat $latest_file | sed '/^$/d' | wc -l`
           a=`echo "${a:(-1)}"`
