@@ -11,9 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: List
       shell: bash
-      run: |
-          CVPKG=$(go list ./... | grep -v mocks | tr '\n' ',')
-          echo $CVPKG          
+      run: | 
           latest_file=`ls ${{ github.workspace }} -t | head -n 1`
           a=`cat $latest_file | sed '/^$/d' | wc -l`
           a=`echo "${a:(-1)}"`
