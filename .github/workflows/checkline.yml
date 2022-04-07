@@ -16,14 +16,5 @@ jobs:
           
           while read line ;
           do
-            fileline=`cat ${{ github.workspace }}/$line | sed '/^$/d' | wc -l`
-            fileline=`echo "${fileline:(-1)}"`
-            sum=$(($fileline%2))
-            if [ $sum = 0 ]
-                  then
-                      echo "success"
-                  else
-                      return `failure()`
-              fi
-            echo $sum
+            echo $line
           done < "$filelist"
