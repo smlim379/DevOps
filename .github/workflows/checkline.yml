@@ -6,9 +6,9 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps: 
-    - name: List
+    
     - uses: actions/checkout@v2
-      shell: bash
+    - name: List  
       run: |
           filelist=`ls ${{ github.workspace }}`
           echo $filelist | while read line ;
