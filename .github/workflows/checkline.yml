@@ -8,7 +8,8 @@ jobs:
     steps: 
     
     - uses: actions/checkout@v2
-    - name: List  
+    - name: List
+      shell: bash
       run: |
           filelist=`ls ${{ github.workspace }}`
           echo $filelist | while read line ;
