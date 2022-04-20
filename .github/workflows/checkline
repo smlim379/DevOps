@@ -20,5 +20,5 @@ jobs:
           then
             echo "success"
           else
-            exit(1)
+            exit 1
           fi
