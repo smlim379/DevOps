@@ -59,6 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
+      access_key = ${{secrets.AWS_ACCESS_KEY}}
+      secret_key = ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
@@ -85,8 +88,6 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-        env:access_key = '${{ secrets.AWS_ACCESS_KEY }}'
-        env:secret_key = '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
       run: terraform plan -input=false
               
 
