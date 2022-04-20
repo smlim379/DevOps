@@ -26,5 +26,5 @@
         tags = {
         Name = "Cloud Gateway by Terraform"
         }
-   }
+    }
 
