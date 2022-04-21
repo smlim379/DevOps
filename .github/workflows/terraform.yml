@@ -92,8 +92,8 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
-          export access_key = ${{ secrets.AWS_ACCESS_KEY }}
-          export secret_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          export access_key=${{ secrets.AWS_ACCESS_KEY }}
+          export secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}
           terraform plan -input=false
               
 
