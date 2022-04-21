@@ -69,11 +69,6 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v3
-      
-    - name: key
-      env: 
-          access_key: '${{ secrets.AWS_ACCESS_KEY }}'
-          secret_key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
@@ -95,8 +90,8 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       env:
-          access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          access_key: '${{ secrets.AWS_ACCESS_KEY }}'
+          secret_key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
       run: terraform plan -input=false
               
 
