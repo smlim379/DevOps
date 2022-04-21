@@ -86,6 +86,8 @@ jobs:
       run: terraform fmt
     
      
+    - name: key
+      run: echo "${{ secrets.AWS_ACCESS_KEY }}"
     
     # Generates an execution plan for Terraform
     - name: Terraform Plan
