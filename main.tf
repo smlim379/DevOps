@@ -1,5 +1,3 @@
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
 
 terraform {
   required_providers {
@@ -13,8 +11,8 @@ terraform {
 }
 
 provider "aws" {
-  access_key = "${ var.AWS_ACCESS_KEY }"
-  secret_key = "${ var.AWS_SECRET_ACCESS_KEY }"
+  access_key = ['${{ var.AWS_ACCESS_KEY }}']
+  secret_key = ['${{ var.AWS_SECRET_ACCESS_KEY }}']
   profile    = "default"
   region     = "ap-northeast-1"
 }
