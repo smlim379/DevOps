@@ -20,7 +20,7 @@ resource "aws_instance" "app_server" {
         ami           = "ami-074d0f8d7e3de77de"
         instance_type = "t2.micro" 
         subnet_id      = "subnet-02db8bccf5a3e69d5"
-        vpc_security_group_ids = ["sg-0068e7288604485cc"]
+        vpc_security_group_ids = ["sg-0068e7288604485cc","sg-058f52c1da97ee399"]
 
         tags = {
         Name = "Cloud Gateway by Terraform"
